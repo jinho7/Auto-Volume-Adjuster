@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Media Controller",
+  "version": "1.0",
+  "description": "자동으로 미디어 볼륨을 제어하는 확장 프로그램",
+  "permissions": [
+    "tabs",
+    "tabCapture",
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

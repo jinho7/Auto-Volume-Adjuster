@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 400px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    .media-container {
+      margin: 15px 0;
+    }
+    .media-item {
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .volume-control {
+      width: 100%;
+      margin: 10px 0;
+    }
+    .media-selector {
+      width: 100%;
+      margin: 5px 0;
+      padding: 5px;
+    }
+    .mode-selector {
+      margin: 15px 0;
+      padding: 10px;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+    }
+    .mode-selector label {
+      display: block;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+    .mode-description {
+      font-size: 0.9em;
+      color: #666;
+      margin-left: 25px;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .tab-title {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .no-audio {
+      color: #666;
+      font-style: italic;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>미디어 컨트롤러</h2>
+  
+  <div class="mode-selector">
+    <h3>제어 모드 선택</h3>
+    <label>
+      <input type="radio" name="controlMode" value="playPause" checked>
+      재생/정지 모드
+      <div class="mode-description">메인 재생 시 서브 정지, 메인 정지 시 서브 재생</div>
+    </label>
+    <label>
+      <input type="radio" name="controlMode" value="volume">
+      볼륨 조절 모드
+      <div class="mode-description">메인 재생 시 서브 볼륨 감소, 메인 정지 시 서브 볼륨 복구</div>
+    </label>
+  </div>
+
+  <div class="media-container" id="mediaList">
+    <h3>현재 재생 중인 미디어</h3>
+    <div class="media-item">
+      <div class="role-label">메인 미디어 선택</div>
+      <select id="mainMediaSelect" class="media-selector">
+        <option value="">선택하세요</option>
+      </select>
+    </div>
+
+    <div class="media-item">
+      <div class="role-label">서브 미디어 선택</div>
+      <select id="subMediaSelect" class="media-selector">
+        <option value="">선택하세요</option>
+      </select>
+      <input type="range" id="subVolume" class="volume-control" min="0" max="100" value="80">
+      <div class="volume-label">배경음악 볼륨: <span id="subVolumeValue">80</span>%</div>
+    </div>
+  </div>
+
+  <div>
+    <button id="refreshTabs">탭 새로고침</button>
+    <button id="saveSettings">설정 저장</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
